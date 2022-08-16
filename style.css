@@ -1,0 +1,51 @@
+body {
+  margin: 0%;
+  padding-top: 2%;
+}
+
+.counters {
+  display: grid;
+  grid-auto-flow: column;
+  place-items: center;
+}
+
+.player-actions {
+  display: grid;
+  place-items: center;
+  padding: 4%;
+}
+
+.dig-button {
+  padding: 3%;
+}
+
+.upgrades {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 60% 1%;
+  grid-template-areas:
+    "autominer upgradeTime powermine"
+    "cost cost-of-faster-auto cost-of-powerful-auto";
+  padding: 3%;
+  place-items: center;
+}
+
+.autominer {
+  grid-area: autominer;
+}
+.cost-of-faster-auto {
+  grid-area: cost-of-faster-auto;
+}
+.cost-of-powerful-auto {
+  grid-area: cost-of-powerful-auto;
+}
+.upgradeTime {
+  grid-area: upgradeTime;
+}
+.powermine {
+  grid-area: powermine;
+}
+.cost {
+  grid-area: cost;
+}

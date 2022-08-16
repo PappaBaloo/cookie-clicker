@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MineClicker</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <div class="counters">
+      <div class="dugCounter">
+        Meters dug:
+        <span class="meters-dug-last">0</span>
+      </div>
+      <div class="energyCounter">
+        Energy:
+        <span class="energyAmounts">1000</span>
+      </div>
+      <div>Current Money: <span class="money">0</span></div>
+    </div>
+    <div class="player-actions">
+      <button type="button" class="dig-button">DIG!</button>
+    </div>
+    <div class="upgrades">
+      <button type="button" class="autominer">Click to buy autominer</button>
+      <button type="button" class="upgradeTime">
+        Click to buy faster autominers
+      </button>
+      <button type="button" class="powermine">
+        Click to buy more powerful autominers
+      </button>
+      <span>Cost: <span class="cost">10</span></span>
+      <span>Cost: <span class="cost-of-faster-auto">15</span></span>
+      <span>Cost: <span class="cost-of-powerful-auto"></span>15</span>
+    </div>
+  </body>
+</html>
