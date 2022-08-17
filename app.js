@@ -1,27 +1,31 @@
 let metersdug = 0;
 let energyAmount = 1000;
 let intervalNumber = 0;
-let moneyEarned = 0;
+let currentMoney = 0;
 let costofAuto = 10;
 let amountOfAuto = 0;
 let speedofInterval = 6000;
 
+//Labels
 const metersDugLabel = document.querySelector(".meters-dug-last");
+const money_label = document.querySelector(".money");
 const energyAmountNumber = document.querySelector(".energyAmounts");
-const digActionButton = document.querySelector(".dig-button");
-const currentMoney = document.querySelector(".money");
 const costofAutominer = document.querySelector(".cost");
-const buyautoMiner = document.querySelector(".autominer");
+//Buttons
+const digAction_button = document.querySelector(".dig-button");
+const buyautoMiner_button = document.querySelector(".autominer");
+const fasterAutominer_button = document.querySelector(".upgradeTime");
 
+//Active functions
 function dig() {
   metersdug++;
   updateDug();
   updateMoney();
-  console.log(moneyEarned);
+  console.log(currentMoney);
 }
 
 function autodig() {
-  window.setInterval(dig, speedofInterval);
+  setInterval(dig, speedofInterval);
   updateDug();
 }
 
@@ -31,17 +35,21 @@ function energyLoss() {
 }
 
 function AutoMinerBuy() {
-  if (moneyEarned >= costofAuto) {
+  if (currentMoney >= costofAuto) {
     amountOfAuto++;
     console.log("You have bought " + amountOfAuto + " autominers");
-    moneyEarned -= costofAuto;
+    currentMoney -= costofAuto;
     costofAuto *= 1.2;
     autodig();
+    costofAuto = Math.floor(costofAuto);
   }
   updateCostAuto();
   updateMoney();
 }
 
+//function timeUpgradeBuy() {}
+
+//Update functions
 let updateDug = () => {
   metersDugLabel.innerHTML = metersdug + "m";
 };
@@ -55,16 +63,18 @@ let updateEnergy = () => {
 };
 
 let updateMoney = () => {
-  currentMoney.innerHTML = moneyEarned;
-  if (metersdug % 2) {
-    moneyEarned++;
+  if (metersdug % 2 === 0) {
+    currentMoney++;
   }
+  money_label.innerHTML = currentMoney;
 };
 
 let updateCostAuto = () => {
   costofAutominer.innerHTML = costofAuto;
 };
 
-digActionButton.addEventListener("click", dig);
-digActionButton.addEventListener("click", energyLoss);
-buyautoMiner.addEventListener("click", AutoMinerBuy);
+//EventListeners
+digAction_button.addEventListener("click", dig);
+digAction_button.addEventListener("click", energyLoss);
+buyautoMiner_button.addEventListener("click", AutoMinerBuy);
+//fasterAutominer_button.addEventListener("click");
